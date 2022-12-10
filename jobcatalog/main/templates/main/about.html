@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+About us
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <h1 class="main__title">About us</h1>
+        <p>Welcome to IT Jobs, the world's largest professional network with over 850 million members in over 200 countries and regions.</p>
+
+        <h3>Our mission is</h3>
+        <p>IT Jobs's mission is simple: to bring together professionals from all over the world to make their professional
+            activities more efficient and successful.
+        </p>
+
+
+        <a href="{% url 'home' %}">
+            <button class="btn btn-light" name="Cancel">Go back</button>
+        </a>
+
+    </main>
+{% endblock %}

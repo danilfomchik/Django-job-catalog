@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Delete vacancy
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <h1 class="main__title">Delete vacancy</h1>
+        <p>Are you sure you want to delete this "{{job}}" vacancy?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}</br>
+
+            <button type="submit" class="btn btn-danger" name="Delete Job">Delete</button>
+            <span>{{ error }}</span>
+        </form>
+
+        <a href="{% url 'home' %}">
+            <button class="btn btn-light mt-2" name="Cancel">Go back</button>
+        </a>
+    </main>
+{% endblock %}

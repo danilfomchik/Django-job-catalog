@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <style>
+        .controls{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            color: #ffffff;
+        }
+
+        .controls a{
+            color: #ffffff;
+        }
+    </style>
+
+
+    <main>
+        <h1 class="main__title">Check our new job vacancies!</h1>
+        <p>Good luck in your search :)</p>
+
+        {% if jobs %}
+            {% for job in jobs %}
+                <div class="bg-dark bg-gradient p-5 rounded mt-4" style="color: #ffffff;">
+
+                    <div class="controls">
+                        <a href="{% url 'update' job.id %}" class="controls__update">update</a>
+                        <a href="{% url 'delete' job.id %}" class="controls__delete">delete</a>
+                    </div>
+
+
+                    <h1>{{ job.position }}</h1>
+                    <p class="lead">{{ job.description|truncatechars:50 }}</p>
+                    <a class="btn btn-lg btn-primary" href="{% url 'view' job.id %}" role="button">Respond »</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="lead">Nothing to show...</p>
+        {% endif %}
+    </main>
+{% endblock %}

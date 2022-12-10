@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Update vacancy
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <h1 class="main__title">Update vacancy</h1>
+        <p>Here you can make some changes</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}</br>
+
+            <button type="submit" class="btn btn-success" name="Update Job">Change</button>
+
+            <span>{{ error }}</span>
+        </form>
+
+        <a href="{% url 'home' %}">
+            <button class="btn btn-light mt-2" name="Cancel">Go back</button>
+        </a>
+    </main>
+{% endblock %}
